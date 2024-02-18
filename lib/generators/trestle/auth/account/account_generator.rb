@@ -18,7 +18,8 @@ module Trestle
           options[:devise]
         end
 
-      protected
+        protected
+
         def parameter_name
           singular_name
         end

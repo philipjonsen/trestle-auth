@@ -5,7 +5,8 @@ module Trestle
         extend ActiveSupport::Concern
 
         def remember_me!
-          update(remember_token: SecureRandom.urlsafe_base64(15), remember_token_expires_at: Time.now + Trestle.config.auth.remember.for)
+          update(remember_token: SecureRandom.urlsafe_base64(15),
+            remember_token_expires_at: Time.now + Trestle.config.auth.remember.for)
         end
 
         def forget_me!

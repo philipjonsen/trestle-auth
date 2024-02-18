@@ -14,9 +14,11 @@ module Trestle
           protect_from_forgery prepend: true
         end
 
-      protected
+        protected
+
         def authentication_backend
-          @_authentication_backend ||= Trestle.config.auth.backend.new(controller: self, request: request, session: session, cookies: cookies)
+          @_authentication_backend ||= Trestle.config.auth.backend.new(controller: self, request: request,
+            session: session, cookies: cookies)
         end
 
         def current_user

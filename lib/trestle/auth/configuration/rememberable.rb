@@ -22,7 +22,7 @@ module Trestle
         }
 
         option :cookie, ->(user) {
-          { value: user.remember_token, expires: user.remember_token_expires_at }
+          {value: user.remember_token, expires: user.remember_token_expires_at}
         }
       end
     end

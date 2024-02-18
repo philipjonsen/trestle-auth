@@ -8,9 +8,13 @@ module Trestle
           around_action :set_time_zone, if: :logged_in? if Trestle.config.auth.time_zone
         end
 
-      protected
+        protected
+
         def set_time_zone
-          Time.use_zone(instance_exec(current_user, &Trestle.config.auth.time_zone) || Rails.application.config.time_zone) { yield }
+          Time.use_zone(instance_exec(current_user,
+            &Trestle.config.auth.time_zone) || Rails.application.config.time_zone) {
+            yield
+          }
         end
       end
     end

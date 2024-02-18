@@ -22,9 +22,11 @@ module Trestle
         backend.logged_in?
       end
 
-    private
+      private
+
       def authentication_backend_for(request)
-        Trestle.config.auth.backend.new(controller: self, request: request, session: request.session, cookies: request.cookie_jar)
+        Trestle.config.auth.backend.new(controller: self, request: request, session: request.session,
+          cookies: request.cookie_jar)
       end
     end
   end
