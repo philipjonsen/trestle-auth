@@ -43,7 +43,8 @@ module Trestle
           @user = nil
         end
 
-      protected
+        protected
+
         def remember_me!
           Trestle.config.auth.remember.remember_me(user)
           cookies.signed[:trestle_remember_token] = Trestle.config.auth.remember.cookie(user)

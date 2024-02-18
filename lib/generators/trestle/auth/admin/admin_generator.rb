@@ -11,14 +11,15 @@ module Trestle
         source_root File.expand_path("../templates", __FILE__)
 
         def create_admin
-          template "admin.rb.erb", File.join('app/admin/auth', "#{model.underscore.pluralize}_admin.rb")
+          template "admin.rb.erb", File.join("app/admin/auth", "#{model.underscore.pluralize}_admin.rb")
         end
 
         def devise?
           options[:devise]
         end
 
-      protected
+        protected
+
         def parameter_name
           singular_name
         end

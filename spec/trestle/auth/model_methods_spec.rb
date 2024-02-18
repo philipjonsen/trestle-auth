@@ -28,7 +28,9 @@ end
 describe Trestle::Auth::ModelMethods::Rememberable do
   let(:model) { Administrator }
 
-  subject(:instance) { Administrator.create!(email: "test@example.com", password: "password", first_name: "Test", last_name: "Example") }
+  subject(:instance) {
+    Administrator.create!(email: "test@example.com", password: "password", first_name: "Test", last_name: "Example")
+  }
 
   describe "#remember_me!" do
     it "sets the remember token and expiration" do

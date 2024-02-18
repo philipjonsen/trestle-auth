@@ -222,7 +222,7 @@ describe Trestle::Auth::Configuration do
 
     it "has a cookie configuration block option" do
       expect(config).to have_accessor(:cookie)
-      expect(config.cookie(user)).to eq({ value: user.remember_token, expires: user.remember_token_expires_at })
+      expect(config.cookie(user)).to eq({value: user.remember_token, expires: user.remember_token_expires_at})
     end
   end
 

@@ -43,9 +43,10 @@ module Trestle
           Trestle.config.auth.warden.scope
         end
 
-      protected
+        protected
+
         def warden
-          request.env['warden']
+          request.env["warden"]
         end
       end
     end

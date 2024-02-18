@@ -13,7 +13,8 @@ module Trestle
 
         def check_trestle_installed
           unless ::File.exist?("config/initializers/trestle.rb")
-            raise Thor::Error, "The file config/initializers/trestle.rb does not appear to exist. Please run `trestle:install` first."
+            raise Thor::Error,
+              "The file config/initializers/trestle.rb does not appear to exist. Please run `trestle:install` first."
           end
         end
 
@@ -43,14 +44,15 @@ module Trestle
           devise? ? "devise.rb.erb" : "basic.rb.erb"
         end
 
-      private
+        private
+
         def format_configuration(source)
           "\n#{source.indent(2)}\n"
         end
 
-        def template_content(path, options={})
+        def template_content(path, options = {})
           path = File.expand_path(find_in_source_paths(path.to_s))
-          context = options.delete(:context) || instance_eval("binding")
+          context = options.delete(:context) || instance_eval("binding", __FILE__, __LINE__)
 
           content = capturable_erb(path).tap do |erb|
             erb.filename = path

@@ -26,7 +26,11 @@ module Trestle
       }
 
       option :human_attribute_name, ->(field) {
-        model = Trestle.config.auth.user_class rescue nil
+        model = begin
+          Trestle.config.auth.user_class
+        rescue
+          nil
+        end
 
         if model && model.respond_to?(:human_attribute_name)
           model.human_attribute_name(field)
